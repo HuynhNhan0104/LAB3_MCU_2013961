@@ -99,7 +99,7 @@ HAL_TIM_Base_Start_IT(&htim2);
   while (1)
   {
 	  if(is_button_pressed()){
-		  HAL_GPIO_TogglePin(GPIOA, LED_RED_1_Pin);
+		  mode = (mode+1)%4;
 	  }
     /* USER CODE END WHILE */
 

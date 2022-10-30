@@ -12,7 +12,7 @@ int keyREG0 = IS_RELEASED_KEY;
 int keyREG1 = IS_RELEASED_KEY;
 int keyREG2 = IS_RELEASED_KEY;
 
-int counter = 200/TIME_CYCLE;
+
 
 int is_button_pressed(){
 	if(button0_flag){
@@ -36,18 +36,14 @@ void getKeyInput(){
 			if(keyREG0 == keyREG1 && keyREG1 == keyREG2){
 				if(keyREG2 == IS_PRESSED_KEY) {
 					subKeyProcess();
-					counter = 200/TIME_CYCLE;
+					set_timer0(200);
 					state_button0 = ACTIVE;
 				}
 			}
 			break;
 		case ACTIVE:
-			if(counter > 0){
-				counter--;
-				if(counter <= 0){
-					counter = 200/TIME_CYCLE;
-					state_button0 = UNACTIVE;
-				}
+			if(is_timer0_timeout()){
+				state_button0 = UNACTIVE;
 			}
 
 			break;

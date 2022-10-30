@@ -10,7 +10,7 @@
 
 #include "global.h"
 #include "main.h"
-
+#include "timer.h"
 int is_button_pressed();
 void subKeyProcess();
 void getKeyInput();
