@@ -11,9 +11,9 @@
 #include "global.h"
 #include "main.h"
 #include "timer.h"
-int is_button_pressed();
-void subKeyProcess();
-void getKeyInput();
+int is_button0_pressed();
+void subKeyProcess0();
+void getKeyInput0();
 
 
 #endif /* INC_BUTTON_H_ */

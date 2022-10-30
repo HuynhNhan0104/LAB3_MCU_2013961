@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_line   00009bc6  00000000  00000000  0004147f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081e3b  00000000  00000000  0004b045  2**0
+ 18 .debug_str    00081e3e  00000000  00000000  0004b045  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cce80  2**0
+ 19 .comment      00000053  00000000  00000000  000cce83  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026b0  00000000  00000000  000cced4  2**2
+ 20 .debug_frame  000026b0  00000000  00000000  000cced8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -76,27 +76,27 @@ Disassembly of section .text:
  8000144:	20000024 	.word	0x20000024
  8000148:	08001c44 	.word	0x08001c44
 
-0800014c <is_button_pressed>:
+0800014c <is_button0_pressed>:
 int keyREG1 = IS_RELEASED_KEY;
 int keyREG2 = IS_RELEASED_KEY;
 
 
 
-int is_button_pressed(){
+int is_button0_pressed(){
  800014c:	b480      	push	{r7}
  800014e:	af00      	add	r7, sp, #0
 	if(button0_flag){
- 8000150:	4b06      	ldr	r3, [pc, #24]	; (800016c <is_button_pressed+0x20>)
+ 8000150:	4b06      	ldr	r3, [pc, #24]	; (800016c <is_button0_pressed+0x20>)
  8000152:	681b      	ldr	r3, [r3, #0]
  8000154:	2b00      	cmp	r3, #0
- 8000156:	d004      	beq.n	8000162 <is_button_pressed+0x16>
+ 8000156:	d004      	beq.n	8000162 <is_button0_pressed+0x16>
 		button0_flag = 0;
- 8000158:	4b04      	ldr	r3, [pc, #16]	; (800016c <is_button_pressed+0x20>)
+ 8000158:	4b04      	ldr	r3, [pc, #16]	; (800016c <is_button0_pressed+0x20>)
  800015a:	2200      	movs	r2, #0
  800015c:	601a      	str	r2, [r3, #0]
 		return 1;
  800015e:	2301      	movs	r3, #1
- 8000160:	e000      	b.n	8000164 <is_button_pressed+0x18>
+ 8000160:	e000      	b.n	8000164 <is_button0_pressed+0x18>
 	}
 	return 0;
  8000162:	2300      	movs	r3, #0
@@ -107,13 +107,13 @@ int is_button_pressed(){
  800016a:	4770      	bx	lr
  800016c:	2000003c 	.word	0x2000003c
 
-08000170 <subKeyProcess>:
+08000170 <subKeyProcess0>:
 
-void subKeyProcess(){
+void subKeyProcess0(){
  8000170:	b480      	push	{r7}
  8000172:	af00      	add	r7, sp, #0
 	button0_flag = 1;
- 8000174:	4b03      	ldr	r3, [pc, #12]	; (8000184 <subKeyProcess+0x14>)
+ 8000174:	4b03      	ldr	r3, [pc, #12]	; (8000184 <subKeyProcess0+0x14>)
  8000176:	2201      	movs	r2, #1
  8000178:	601a      	str	r2, [r3, #0]
 }
@@ -124,90 +124,90 @@ void subKeyProcess(){
  8000182:	bf00      	nop
  8000184:	2000003c 	.word	0x2000003c
 
-08000188 <getKeyInput>:
+08000188 <getKeyInput0>:
 
-void getKeyInput(){
+void getKeyInput0(){
  8000188:	b580      	push	{r7, lr}
  800018a:	af00      	add	r7, sp, #0
 	keyREG0 = keyREG1;
- 800018c:	4b1f      	ldr	r3, [pc, #124]	; (800020c <getKeyInput+0x84>)
+ 800018c:	4b1f      	ldr	r3, [pc, #124]	; (800020c <getKeyInput0+0x84>)
  800018e:	681b      	ldr	r3, [r3, #0]
- 8000190:	4a1f      	ldr	r2, [pc, #124]	; (8000210 <getKeyInput+0x88>)
+ 8000190:	4a1f      	ldr	r2, [pc, #124]	; (8000210 <getKeyInput0+0x88>)
  8000192:	6013      	str	r3, [r2, #0]
 	keyREG1 = keyREG2;
- 8000194:	4b1f      	ldr	r3, [pc, #124]	; (8000214 <getKeyInput+0x8c>)
+ 8000194:	4b1f      	ldr	r3, [pc, #124]	; (8000214 <getKeyInput0+0x8c>)
  8000196:	681b      	ldr	r3, [r3, #0]
- 8000198:	4a1c      	ldr	r2, [pc, #112]	; (800020c <getKeyInput+0x84>)
+ 8000198:	4a1c      	ldr	r2, [pc, #112]	; (800020c <getKeyInput0+0x84>)
  800019a:	6013      	str	r3, [r2, #0]
 	keyREG2 = HAL_GPIO_ReadPin(BUTTON0_GPIO_Port, BUTTON0_Pin);
  800019c:	2101      	movs	r1, #1
- 800019e:	481e      	ldr	r0, [pc, #120]	; (8000218 <getKeyInput+0x90>)
+ 800019e:	481e      	ldr	r0, [pc, #120]	; (8000218 <getKeyInput0+0x90>)
  80001a0:	f000 fd28 	bl	8000bf4 <HAL_GPIO_ReadPin>
  80001a4:	4603      	mov	r3, r0
  80001a6:	461a      	mov	r2, r3
- 80001a8:	4b1a      	ldr	r3, [pc, #104]	; (8000214 <getKeyInput+0x8c>)
+ 80001a8:	4b1a      	ldr	r3, [pc, #104]	; (8000214 <getKeyInput0+0x8c>)
  80001aa:	601a      	str	r2, [r3, #0]
 
 	switch(state_button0){
- 80001ac:	4b1b      	ldr	r3, [pc, #108]	; (800021c <getKeyInput+0x94>)
+ 80001ac:	4b1b      	ldr	r3, [pc, #108]	; (800021c <getKeyInput0+0x94>)
  80001ae:	681b      	ldr	r3, [r3, #0]
  80001b0:	2b0e      	cmp	r3, #14
- 80001b2:	d01a      	beq.n	80001ea <getKeyInput+0x62>
+ 80001b2:	d01a      	beq.n	80001ea <getKeyInput0+0x62>
  80001b4:	2b0f      	cmp	r3, #15
- 80001b6:	d121      	bne.n	80001fc <getKeyInput+0x74>
+ 80001b6:	d121      	bne.n	80001fc <getKeyInput0+0x74>
 		case UNACTIVE:
 			if(keyREG0 == keyREG1 && keyREG1 == keyREG2){
- 80001b8:	4b15      	ldr	r3, [pc, #84]	; (8000210 <getKeyInput+0x88>)
+ 80001b8:	4b15      	ldr	r3, [pc, #84]	; (8000210 <getKeyInput0+0x88>)
  80001ba:	681a      	ldr	r2, [r3, #0]
- 80001bc:	4b13      	ldr	r3, [pc, #76]	; (800020c <getKeyInput+0x84>)
+ 80001bc:	4b13      	ldr	r3, [pc, #76]	; (800020c <getKeyInput0+0x84>)
  80001be:	681b      	ldr	r3, [r3, #0]
  80001c0:	429a      	cmp	r2, r3
- 80001c2:	d11d      	bne.n	8000200 <getKeyInput+0x78>
- 80001c4:	4b11      	ldr	r3, [pc, #68]	; (800020c <getKeyInput+0x84>)
+ 80001c2:	d11d      	bne.n	8000200 <getKeyInput0+0x78>
+ 80001c4:	4b11      	ldr	r3, [pc, #68]	; (800020c <getKeyInput0+0x84>)
  80001c6:	681a      	ldr	r2, [r3, #0]
- 80001c8:	4b12      	ldr	r3, [pc, #72]	; (8000214 <getKeyInput+0x8c>)
+ 80001c8:	4b12      	ldr	r3, [pc, #72]	; (8000214 <getKeyInput0+0x8c>)
  80001ca:	681b      	ldr	r3, [r3, #0]
  80001cc:	429a      	cmp	r2, r3
- 80001ce:	d117      	bne.n	8000200 <getKeyInput+0x78>
+ 80001ce:	d117      	bne.n	8000200 <getKeyInput0+0x78>
 				if(keyREG2 == IS_PRESSED_KEY) {
- 80001d0:	4b10      	ldr	r3, [pc, #64]	; (8000214 <getKeyInput+0x8c>)
+ 80001d0:	4b10      	ldr	r3, [pc, #64]	; (8000214 <getKeyInput0+0x8c>)
  80001d2:	681b      	ldr	r3, [r3, #0]
  80001d4:	2b00      	cmp	r3, #0
- 80001d6:	d113      	bne.n	8000200 <getKeyInput+0x78>
-					subKeyProcess();
- 80001d8:	f7ff ffca 	bl	8000170 <subKeyProcess>
+ 80001d6:	d113      	bne.n	8000200 <getKeyInput0+0x78>
+					subKeyProcess0();
+ 80001d8:	f7ff ffca 	bl	8000170 <subKeyProcess0>
 					set_timer0(200);
  80001dc:	20c8      	movs	r0, #200	; 0xc8
  80001de:	f000 f9b7 	bl	8000550 <set_timer0>
 					state_button0 = ACTIVE;
- 80001e2:	4b0e      	ldr	r3, [pc, #56]	; (800021c <getKeyInput+0x94>)
+ 80001e2:	4b0e      	ldr	r3, [pc, #56]	; (800021c <getKeyInput0+0x94>)
  80001e4:	220e      	movs	r2, #14
  80001e6:	601a      	str	r2, [r3, #0]
 				}
 			}
 			break;
- 80001e8:	e00a      	b.n	8000200 <getKeyInput+0x78>
+ 80001e8:	e00a      	b.n	8000200 <getKeyInput0+0x78>
 		case ACTIVE:
 			if(is_timer0_timeout()){
  80001ea:	f000 f9c7 	bl	800057c <is_timer0_timeout>
  80001ee:	4603      	mov	r3, r0
  80001f0:	2b00      	cmp	r3, #0
- 80001f2:	d007      	beq.n	8000204 <getKeyInput+0x7c>
+ 80001f2:	d007      	beq.n	8000204 <getKeyInput0+0x7c>
 				state_button0 = UNACTIVE;
- 80001f4:	4b09      	ldr	r3, [pc, #36]	; (800021c <getKeyInput+0x94>)
+ 80001f4:	4b09      	ldr	r3, [pc, #36]	; (800021c <getKeyInput0+0x94>)
  80001f6:	220f      	movs	r2, #15
  80001f8:	601a      	str	r2, [r3, #0]
 			}
 
 			break;
- 80001fa:	e003      	b.n	8000204 <getKeyInput+0x7c>
+ 80001fa:	e003      	b.n	8000204 <getKeyInput0+0x7c>
 		default:
 			break;
  80001fc:	bf00      	nop
- 80001fe:	e002      	b.n	8000206 <getKeyInput+0x7e>
+ 80001fe:	e002      	b.n	8000206 <getKeyInput0+0x7e>
 			break;
  8000200:	bf00      	nop
- 8000202:	e000      	b.n	8000206 <getKeyInput+0x7e>
+ 8000202:	e000      	b.n	8000206 <getKeyInput0+0x7e>
 			break;
  8000204:	bf00      	nop
 	}
@@ -263,8 +263,8 @@ HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if(is_button_pressed()){
- 800023a:	f7ff ff87 	bl	800014c <is_button_pressed>
+	  if(is_button0_pressed()){
+ 800023a:	f7ff ff87 	bl	800014c <is_button0_pressed>
  800023e:	4603      	mov	r3, r0
  8000240:	2b00      	cmp	r3, #0
  8000242:	d0fa      	beq.n	800023a <main+0x1a>
@@ -279,7 +279,7 @@ HAL_TIM_Base_Start_IT(&htim2);
  8000256:	4253      	negpl	r3, r2
  8000258:	4a02      	ldr	r2, [pc, #8]	; (8000264 <main+0x44>)
  800025a:	6013      	str	r3, [r2, #0]
-	  if(is_button_pressed()){
+	  if(is_button0_pressed()){
  800025c:	e7ed      	b.n	800023a <main+0x1a>
  800025e:	bf00      	nop
  8000260:	20000048 	.word	0x20000048
@@ -590,8 +590,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  8000416:	6078      	str	r0, [r7, #4]
 	timer_run();
  8000418:	f000 f8c2 	bl	80005a0 <timer_run>
-	getKeyInput();
- 800041c:	f7ff feb4 	bl	8000188 <getKeyInput>
+	getKeyInput0();
+ 800041c:	f7ff feb4 	bl	8000188 <getKeyInput0>
 }
  8000420:	bf00      	nop
  8000422:	3708      	adds	r7, #8

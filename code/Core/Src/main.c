@@ -98,9 +98,11 @@ HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if(is_button_pressed()){
+	  if(is_button0_pressed()){
 		  mode = (mode+1)%4;
 	  }
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -225,7 +227,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
-	getKeyInput();
+	getKeyInput0();
 }
 /* USER CODE END 4 */
 

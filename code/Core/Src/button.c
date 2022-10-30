@@ -14,7 +14,7 @@ int keyREG2 = IS_RELEASED_KEY;
 
 
 
-int is_button_pressed(){
+int is_button0_pressed(){
 	if(button0_flag){
 		button0_flag = 0;
 		return 1;
@@ -22,11 +22,11 @@ int is_button_pressed(){
 	return 0;
 }
 
-void subKeyProcess(){
+void subKeyProcess0(){
 	button0_flag = 1;
 }
 
-void getKeyInput(){
+void getKeyInput0(){
 	keyREG0 = keyREG1;
 	keyREG1 = keyREG2;
 	keyREG2 = HAL_GPIO_ReadPin(BUTTON0_GPIO_Port, BUTTON0_Pin);
@@ -35,7 +35,7 @@ void getKeyInput(){
 		case UNACTIVE:
 			if(keyREG0 == keyREG1 && keyREG1 == keyREG2){
 				if(keyREG2 == IS_PRESSED_KEY) {
-					subKeyProcess();
+					subKeyProcess0();
 					set_timer0(200);
 					state_button0 = ACTIVE;
 				}
