@@ -7,13 +7,12 @@
 
 #include "button.h"
 
+//BUTTON0 :
+
 int button0_flag = 0;
 int keyREG0 = IS_RELEASED_KEY;
 int keyREG1 = IS_RELEASED_KEY;
 int keyREG2 = IS_RELEASED_KEY;
-
-
-
 int is_button0_pressed(){
 	if(button0_flag){
 		button0_flag = 0;
@@ -21,11 +20,9 @@ int is_button0_pressed(){
 	}
 	return 0;
 }
-
 void subKeyProcess0(){
 	button0_flag = 1;
 }
-
 void getKeyInput0(){
 	keyREG0 = keyREG1;
 	keyREG1 = keyREG2;
@@ -52,3 +49,8 @@ void getKeyInput0(){
 	}
 
 }
+
+//BUTTON 1:
+
+
+//BUTTON2 :
