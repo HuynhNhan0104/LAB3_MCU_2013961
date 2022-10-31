@@ -26,6 +26,8 @@
 #include "timer.h"
 #include "button.h"
 #include "led_7_seg.h"
+#include "traffic_fsm.h"
+#include "led_traffic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,14 +99,22 @@ HAL_TIM_Base_Start_IT(&htim2);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	initial_system();
+	mode = NORMAL_MODE;
+	state_button0 = UNACTIVE ;
+	duration_time_of_RED = 5000;
+	duration_time_of_YELLOW = 2000;
+	duration_time_of_GREEN = 3000;
+	set_timer1(500);
+	state_led_traffic_1 = RED;
+	turn_on_led_traffic1_in_state();
+	state_led_traffic_2 = GREEN;
+	turn_on_led_traffic2_in_state();
+	set_timer2(duration_time_of_RED);
+	set_timer3(duration_time_of_GREEN);
   while (1)
   {
 
-	  if(is_button0_pressed()){
-		  mode = (mode+1)%4;
-	  }
-
+	  fsm_run();
 	  led_7seg_run();
 
     /* USER CODE END WHILE */
@@ -250,14 +260,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	getKeyInput0();
 }
 
-void initial_system(){
-	mode = NORMAL_MODE;
-	state_led_7seg = IN_NORMAL_MODE;
-	index_led_7_seg = 0;
-	set_timer0(500);
-	set_timer1(500);
 
-}
 /* USER CODE END 4 */
 
 /**

@@ -11,32 +11,27 @@
 
 //mode of system
 extern int mode;
-#define NORMAL_MODE						0
-#define MODIFY_RED							1
-#define MODIFY_YELLOW						2
-#define MODIFY_GREEN						3
-
-
-
-//Finite State machine
-extern int state;
-#define INIT											4
-#define AUTO_RED								5
-#define AUTO_YELLOW							6
-#define AUtO_GREEN							7
-
-#define MANUAl_RED							8
-#define MANUAL_YELLOW					9
-#define MANUAL_GREEN 					10
-
+#define INIT_SYSTEM							0
+#define NORMAL_MODE						1
+#define MODIFY_RED_MODE				2
+#define MODIFY_YELLOW_MODE			3
+#define MODIFY_GREEN_MODE			4
 
 //Timer
 #define TIME_CYCLE 							10 //(10ms)
 
-//led traffic
-#define RED											11
-#define YELLOW									12
-#define GREEN										13
+//SINGLE LED OF TRAFFIC
+#define OFF											11
+#define RED											12
+#define YELLOW									13
+#define GREEN										14
+
+extern int duration_time_of_RED;
+extern int duration_time_of_YELLOW;
+extern int duration_time_of_GREEN;
+
+extern int state_led_traffic_1;
+extern int state_led_traffic_2;
 
 // BUTTON
 #define IS_PRESSED_KEY						GPIO_PIN_RESET
@@ -44,18 +39,19 @@ extern int state;
 
 extern int state_button0;
 
-#define ACTIVE 									14
-#define UNACTIVE								15
-#define ACTIVE_MORE_1S					16
+#define ACTIVE 									15
+#define UNACTIVE								16
+#define ACTIVE_MORE_1S					17
 
 //LED 7 SEGMENT
-#define IN_NORMAL_MODE					17
-#define IN_MODIFY_MODE					18
 
-
-extern int normal_led_7_seg_buffer[4];
-extern int modify_led_7_seg_buffer[4];
-extern int state_led_7seg;
+extern int led_7_seg_buffer[4];
 extern int index_led_7_seg;
+
+
+
+
+
+
 
 #endif /* INC_GLOBAL_H_ */

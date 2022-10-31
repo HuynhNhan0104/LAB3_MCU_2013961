@@ -13,12 +13,22 @@
 void set_timer0(int duration);
 int is_timer0_timeout();
 
-
-
 //timer1 for leg 7 segment
 void set_timer1(int duration);
 int is_timer1_timeout();
 
+//timer2 for traffic led 1
+void set_timer2(int duration);
+int is_timer2_timeout();
+
+//timer3 for traffic led 2
+void set_timer3(int duration);
+int is_timer3_timeout();
+
+
+//timer4 for blinking led of traffic
+void set_timer4(int duration);
+int is_timer4_timeout();
 
 
 //system timer

@@ -8,18 +8,27 @@
 #include "global.h"
 
 //mode of system
-int mode = NORMAL_MODE;
+int mode = INIT_SYSTEM;
 
-//Finite State machine
-int state;
 
+//SINGLE LED OF TRAFFIC
+int duration_time_of_RED = 5000;
+int duration_time_of_YELLOW = 2000;
+int duration_time_of_GREEN = 3000;
+
+int state_led_traffic_1 = RED;
+int state_led_traffic_2 = RED;
 
 // BUTTON
 int state_button0 = UNACTIVE ;
 
 
 //LED 7 SEGMENT
-int normal_led_7_seg_buffer[4] = {1,2,3,4};
-int modify_led_7_seg_buffer[4] = {5,6,7,8};
-int state_led_7seg = IN_NORMAL_MODE;
+int led_7_seg_buffer[4] = {1,2,3,4};
 int index_led_7_seg = 0;
+
+
+
+
+
+

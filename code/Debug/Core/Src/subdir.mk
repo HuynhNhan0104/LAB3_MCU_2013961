@@ -8,37 +8,43 @@ C_SRCS += \
 ../Core/Src/button.c \
 ../Core/Src/global.c \
 ../Core/Src/led_7_seg.c \
+../Core/Src/led_traffic.c \
 ../Core/Src/main.c \
 ../Core/Src/stm32f1xx_hal_msp.c \
 ../Core/Src/stm32f1xx_it.c \
 ../Core/Src/syscalls.c \
 ../Core/Src/sysmem.c \
 ../Core/Src/system_stm32f1xx.c \
-../Core/Src/timer.c 
+../Core/Src/timer.c \
+../Core/Src/traffic_fsm.c 
 
 OBJS += \
 ./Core/Src/button.o \
 ./Core/Src/global.o \
 ./Core/Src/led_7_seg.o \
+./Core/Src/led_traffic.o \
 ./Core/Src/main.o \
 ./Core/Src/stm32f1xx_hal_msp.o \
 ./Core/Src/stm32f1xx_it.o \
 ./Core/Src/syscalls.o \
 ./Core/Src/sysmem.o \
 ./Core/Src/system_stm32f1xx.o \
-./Core/Src/timer.o 
+./Core/Src/timer.o \
+./Core/Src/traffic_fsm.o 
 
 C_DEPS += \
 ./Core/Src/button.d \
 ./Core/Src/global.d \
 ./Core/Src/led_7_seg.d \
+./Core/Src/led_traffic.d \
 ./Core/Src/main.d \
 ./Core/Src/stm32f1xx_hal_msp.d \
 ./Core/Src/stm32f1xx_it.d \
 ./Core/Src/syscalls.d \
 ./Core/Src/sysmem.d \
 ./Core/Src/system_stm32f1xx.d \
-./Core/Src/timer.d 
+./Core/Src/timer.d \
+./Core/Src/traffic_fsm.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
