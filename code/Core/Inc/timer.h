@@ -9,6 +9,7 @@
 #define INC_TIMER_H_
 
 #include "global.h"
+#include "led_traffic.h"
 //timer0 for button0;
 void set_timer0(int duration);
 int is_timer0_timeout();
@@ -18,10 +19,12 @@ void set_timer1(int duration);
 int is_timer1_timeout();
 
 //timer2 for traffic led 1
+extern int timer2_counter;
 void set_timer2(int duration);
 int is_timer2_timeout();
 
 //timer3 for traffic led 2
+extern int timer3_counter;
 void set_timer3(int duration);
 int is_timer3_timeout();
 

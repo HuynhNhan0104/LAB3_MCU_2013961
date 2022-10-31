@@ -99,18 +99,8 @@ HAL_TIM_Base_Start_IT(&htim2);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	mode = NORMAL_MODE;
-	state_button0 = UNACTIVE ;
-	duration_time_of_RED = 5000;
-	duration_time_of_YELLOW = 2000;
-	duration_time_of_GREEN = 3000;
-	set_timer1(500);
-	state_led_traffic_1 = RED;
-	turn_on_led_traffic1_in_state();
-	state_led_traffic_2 = GREEN;
-	turn_on_led_traffic2_in_state();
-	set_timer2(duration_time_of_RED);
-	set_timer3(duration_time_of_GREEN);
+	mode = INIT_SYSTEM;
+
   while (1)
   {
 
