@@ -29,6 +29,7 @@ extern int mode;
 extern int duration_time_of_RED;
 extern int duration_time_of_YELLOW;
 extern int duration_time_of_GREEN;
+extern int buffer_duration_time;
 
 extern int state_led_traffic_1;
 extern int state_led_traffic_2;
@@ -38,6 +39,8 @@ extern int state_led_traffic_2;
 #define IS_RELEASED_KEY						GPIO_PIN_SET
 
 extern int state_button0;
+extern int state_button1;
+extern int state_button2;
 
 #define ACTIVE 									15
 #define UNACTIVE								16
