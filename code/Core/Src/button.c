@@ -6,143 +6,102 @@
  */
 
 #include "button.h"
+// gan cac gia trị ban dau cua state_of_button = BUTTON_RELEASED
+int state_of_button[NUMBER_OF_BUTTON] = {[0 ... NUMBER_OF_BUTTON - 1] = BUTTON_RELEASED};
 
-//BUTTON0 :
 
-int button0_flag = 0;
-int keyREG0_of_button0 = IS_RELEASED_KEY;
-int keyREG1_of_button0  = IS_RELEASED_KEY;
-int keyREG2_of_button0  = IS_RELEASED_KEY;
-int is_button0_pressed(){
-	if(button0_flag){
-		button0_flag = 0;
+int flag_for_pressed[NUMBER_OF_BUTTON] = {0};
+int flag_for_pressed_3s[NUMBER_OF_BUTTON] = {0};
+
+
+int is_pressed(int index){
+	if(index > NUMBER_OF_BUTTON) return 0;
+	if(flag_for_pressed[index]){
+		flag_for_pressed[index] = 0;
 		return 1;
 	}
 	return 0;
 }
-void subKeyProcess0(){
-	button0_flag = 1;
+int is_pressed_3s(int index){
+	if(index > NUMBER_OF_BUTTON) return 0;
+	if(flag_for_pressed_3s[index]){
+		flag_for_pressed_3s[index] = 0;
+		return 1;
+	}
+	return 0;
 }
-void getKeyInput0(){
-	keyREG0_of_button0  = keyREG1_of_button0 ;
-	keyREG1_of_button0  = keyREG2_of_button0 ;
-	keyREG2_of_button0  = HAL_GPIO_ReadPin(BUTTON0_GPIO_Port, BUTTON0_Pin);
+int is_button_released(int index){
+	if(button_buffer[index] == BUTTON_IS_RELEASED) return 1;
+	return 0;
+}
 
-	switch(state_button0){
-		case UNACTIVE:
-			if(keyREG0_of_button0  == keyREG1_of_button0  && keyREG1_of_button0  == keyREG2_of_button0 ){
-				if(keyREG2_of_button0  == IS_PRESSED_KEY) {
-					subKeyProcess0();
-					set_timer0(200);
-					state_button0 = ACTIVE;
-				}
+
+
+
+int register0_key[NUMBER_OF_BUTTON] = {[0 ... NUMBER_OF_BUTTON-1] = BUTTON_IS_RELEASED};
+int register1_key[NUMBER_OF_BUTTON] = {[0 ... NUMBER_OF_BUTTON-1] = BUTTON_IS_RELEASED};
+int register2_key[NUMBER_OF_BUTTON] = {[0 ... NUMBER_OF_BUTTON-1] = BUTTON_IS_RELEASED};
+int button_buffer[NUMBER_OF_BUTTON] = {[0 ... NUMBER_OF_BUTTON-1] = BUTTON_IS_RELEASED};
+void read_input(){
+	for(int i = 0 ; i < NUMBER_OF_BUTTON; ++i){
+		register0_key[i] = register1_key[i];
+		register1_key[i] = register2_key[i];
+		switch(i){
+		case 0 :
+			 register2_key[i] = HAL_GPIO_ReadPin(GPIOB, BUTTON0_Pin);
+			break;
+		case 1:
+			register2_key[i] = HAL_GPIO_ReadPin(GPIOB, BUTTON1_Pin);
+			break;
+		case 2:
+			register2_key[i] = HAL_GPIO_ReadPin(GPIOB, BUTTON2_Pin);
+			break;
+		default:
+			break;
+		}
+
+		if(register0_key[i] == register1_key[i] && register1_key[i] == register2_key[i]){
+			button_buffer[i] = register2_key[i];
+		}
+	}
+}
+
+void fsm_for_button(){
+	for(int i = 0; i < NUMBER_OF_BUTTON; ++i){
+		switch(state_of_button[i]){
+		case BUTTON_RELEASED:
+			if(button_buffer[i] == BUTTON_IS_PRESSED){
+				flag_for_pressed[i] = 1;
+				set_timer(i, 3000);
+				state_of_button[i] = BUTTON_PRESSED;
+			}
+
+			break;
+		case BUTTON_PRESSED:
+
+			if(is_timer_timeout(i)){
+				flag_for_pressed_3s[i] = 1;
+				state_of_button[i] = BUTTON_PRESSED_3S;
+			}
+
+			if(button_buffer[i] == BUTTON_IS_RELEASED){
+				clear_timer(i);
+				state_of_button[i] = BUTTON_RELEASED;
 			}
 			break;
-		case ACTIVE:
-			if(is_timer0_timeout()){
-				state_button0 = UNACTIVE;
+		case BUTTON_PRESSED_3S:
+
+			if(button_buffer[i] == BUTTON_IS_RELEASED){
+				state_of_button[i] = BUTTON_RELEASED;
 			}
 
 			break;
 		default:
 			break;
+
+
+
+		}
 	}
-
 }
 
-//BUTTON 1:
-int button1_flag = 0;
-int keyREG0_of_button1 = IS_RELEASED_KEY;
-int keyREG1_of_button1  = IS_RELEASED_KEY;
-int keyREG2_of_button1  = IS_RELEASED_KEY;
-int is_button1_pressed(){
-	if(button1_flag){
-		button1_flag = 0;
-		return 1;
-	}
-	return 0;
-}
-void subKeyProcess1(){
-	button1_flag = 1;
-}
-void getKeyInput1(){
-	keyREG0_of_button1  = keyREG1_of_button1 ;
-	keyREG1_of_button1  = keyREG2_of_button1 ;
-	keyREG2_of_button1  = HAL_GPIO_ReadPin(BUTTON1_GPIO_Port, BUTTON1_Pin);
-
-	switch(state_button1){
-		case UNACTIVE:
-			if(keyREG0_of_button1  == keyREG1_of_button1  && keyREG1_of_button1  == keyREG2_of_button1 ){
-				if(keyREG2_of_button1  == IS_PRESSED_KEY) {
-					subKeyProcess1();
-					set_timer5(1000);
-					state_button1 = ACTIVE;
-				}
-			}
-			break;
-		case ACTIVE:
-			if(keyREG2_of_button1  == IS_PRESSED_KEY){
-				if(is_timer5_timeout()){
-					state_button1 = ACTIVE_MORE_1S;
-				}
-			}
-			if(keyREG2_of_button1  == IS_RELEASED_KEY) state_button1 = UNACTIVE;
-
-
-			break;
-		case ACTIVE_MORE_1S:
-			subKeyProcess1();
-			if(keyREG2_of_button1  == IS_RELEASED_KEY){
-				state_button1 = UNACTIVE;
-			}
-		default:
-			break;
-	}
-
-}
-
-
-//BUTTON2 :
-
-
-int button2_flag = 0;
-int keyREG0_of_button2= IS_RELEASED_KEY;
-int keyREG1_of_button2 = IS_RELEASED_KEY;
-int keyREG2_of_button2 = IS_RELEASED_KEY;
-int is_button2_pressed(){
-	if(button2_flag){
-		button2_flag = 0;
-		return 1;
-	}
-	return 0;
-}
-void subKeyProcess2(){
-	button2_flag = 1;
-}
-
-void getKeyInput2(){
-	keyREG0_of_button2 = keyREG1_of_button2;
-	keyREG1_of_button2 = keyREG2_of_button2;
-	keyREG2_of_button2 = HAL_GPIO_ReadPin(BUTTON2_GPIO_Port, BUTTON2_Pin);
-
-	switch(state_button2){
-		case UNACTIVE:
-			if(keyREG0_of_button2 == keyREG1_of_button2 && keyREG1_of_button2 == keyREG2_of_button2){
-				if(keyREG2_of_button2 == IS_PRESSED_KEY) {
-					subKeyProcess2();
-					set_timer6(200);
-					state_button2= ACTIVE;
-				}
-			}
-			break;
-		case ACTIVE:
-			if(is_timer6_timeout()){
-				state_button2= UNACTIVE;
-			}
-
-			break;
-		default:
-			break;
-	}
-
-}

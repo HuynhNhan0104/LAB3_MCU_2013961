@@ -25,9 +25,9 @@
 #include "global.h"
 #include "timer.h"
 #include "button.h"
+#include "led_traffic.h"
 #include "led_7_seg.h"
 #include "traffic_fsm.h"
-#include "led_traffic.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,13 +99,16 @@ HAL_TIM_Base_Start_IT(&htim2);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	mode = INIT_SYSTEM;
-
+set_timer(3, 100);
   while (1)
   {
 
-	  fsm_run();
-	  led_7seg_run();
+	fsm_for_button();
+	led_7seg_run();
+	fsm_system_run();
+
+
+
 
     /* USER CODE END WHILE */
 
@@ -247,9 +250,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	timer_run();
-	getKeyInput0();
-	getKeyInput1();
-	getKeyInput2();
+	 read_input();
 }
 
 
