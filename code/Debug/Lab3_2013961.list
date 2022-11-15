@@ -1250,77 +1250,77 @@ void turn_on_traffic_led_2(){
  80009f0:	20000040 	.word	0x20000040
  80009f4:	40010800 	.word	0x40010800
 
-080009f8 <blinkind_led_traffic_1>:
+080009f8 <blinking_led_traffic_1>:
 
-void blinkind_led_traffic_1(){
+void blinking_led_traffic_1(){
  80009f8:	b580      	push	{r7, lr}
  80009fa:	af00      	add	r7, sp, #0
 	switch(state_led_traffic_1){
- 80009fc:	4b1d      	ldr	r3, [pc, #116]	; (8000a74 <blinkind_led_traffic_1+0x7c>)
+ 80009fc:	4b1d      	ldr	r3, [pc, #116]	; (8000a74 <blinking_led_traffic_1+0x7c>)
  80009fe:	681b      	ldr	r3, [r3, #0]
  8000a00:	2b0c      	cmp	r3, #12
- 8000a02:	d024      	beq.n	8000a4e <blinkind_led_traffic_1+0x56>
+ 8000a02:	d024      	beq.n	8000a4e <blinking_led_traffic_1+0x56>
  8000a04:	2b0c      	cmp	r3, #12
- 8000a06:	dc31      	bgt.n	8000a6c <blinkind_led_traffic_1+0x74>
+ 8000a06:	dc31      	bgt.n	8000a6c <blinking_led_traffic_1+0x74>
  8000a08:	2b0a      	cmp	r3, #10
- 8000a0a:	d002      	beq.n	8000a12 <blinkind_led_traffic_1+0x1a>
+ 8000a0a:	d002      	beq.n	8000a12 <blinking_led_traffic_1+0x1a>
  8000a0c:	2b0b      	cmp	r3, #11
- 8000a0e:	d00f      	beq.n	8000a30 <blinkind_led_traffic_1+0x38>
+ 8000a0e:	d00f      	beq.n	8000a30 <blinking_led_traffic_1+0x38>
 				HAL_GPIO_WritePin(GPIOA, LED_YELLOW_1_Pin, SET);
 				HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin, SET);
 				HAL_GPIO_TogglePin(GPIOA, LED_GREEN_1_Pin);
 			break;
 			default:
 			break;
- 8000a10:	e02c      	b.n	8000a6c <blinkind_led_traffic_1+0x74>
+ 8000a10:	e02c      	b.n	8000a6c <blinking_led_traffic_1+0x74>
 				HAL_GPIO_TogglePin(GPIOA, LED_RED_1_Pin);
  8000a12:	2101      	movs	r1, #1
- 8000a14:	4818      	ldr	r0, [pc, #96]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a14:	4818      	ldr	r0, [pc, #96]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a16:	f001 f820 	bl	8001a5a <HAL_GPIO_TogglePin>
 				HAL_GPIO_WritePin(GPIOA, LED_YELLOW_1_Pin, SET);
  8000a1a:	2201      	movs	r2, #1
  8000a1c:	2102      	movs	r1, #2
- 8000a1e:	4816      	ldr	r0, [pc, #88]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a1e:	4816      	ldr	r0, [pc, #88]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a20:	f001 f803 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, SET);
  8000a24:	2201      	movs	r2, #1
  8000a26:	2104      	movs	r1, #4
- 8000a28:	4813      	ldr	r0, [pc, #76]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a28:	4813      	ldr	r0, [pc, #76]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a2a:	f000 fffe 	bl	8001a2a <HAL_GPIO_WritePin>
 			break;
- 8000a2e:	e01e      	b.n	8000a6e <blinkind_led_traffic_1+0x76>
+ 8000a2e:	e01e      	b.n	8000a6e <blinking_led_traffic_1+0x76>
 				HAL_GPIO_WritePin(GPIOA, LED_GREEN_1_Pin, SET);
  8000a30:	2201      	movs	r2, #1
  8000a32:	2104      	movs	r1, #4
- 8000a34:	4810      	ldr	r0, [pc, #64]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a34:	4810      	ldr	r0, [pc, #64]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a36:	f000 fff8 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_TogglePin(GPIOA, LED_YELLOW_1_Pin);
  8000a3a:	2102      	movs	r1, #2
- 8000a3c:	480e      	ldr	r0, [pc, #56]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a3c:	480e      	ldr	r0, [pc, #56]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a3e:	f001 f80c 	bl	8001a5a <HAL_GPIO_TogglePin>
 				HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin, SET);
  8000a42:	2201      	movs	r2, #1
  8000a44:	2101      	movs	r1, #1
- 8000a46:	480c      	ldr	r0, [pc, #48]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a46:	480c      	ldr	r0, [pc, #48]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a48:	f000 ffef 	bl	8001a2a <HAL_GPIO_WritePin>
 			break;
- 8000a4c:	e00f      	b.n	8000a6e <blinkind_led_traffic_1+0x76>
+ 8000a4c:	e00f      	b.n	8000a6e <blinking_led_traffic_1+0x76>
 				HAL_GPIO_WritePin(GPIOA, LED_YELLOW_1_Pin, SET);
  8000a4e:	2201      	movs	r2, #1
  8000a50:	2102      	movs	r1, #2
- 8000a52:	4809      	ldr	r0, [pc, #36]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a52:	4809      	ldr	r0, [pc, #36]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a54:	f000 ffe9 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_WritePin(GPIOA, LED_RED_1_Pin, SET);
  8000a58:	2201      	movs	r2, #1
  8000a5a:	2101      	movs	r1, #1
- 8000a5c:	4806      	ldr	r0, [pc, #24]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a5c:	4806      	ldr	r0, [pc, #24]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a5e:	f000 ffe4 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_TogglePin(GPIOA, LED_GREEN_1_Pin);
  8000a62:	2104      	movs	r1, #4
- 8000a64:	4804      	ldr	r0, [pc, #16]	; (8000a78 <blinkind_led_traffic_1+0x80>)
+ 8000a64:	4804      	ldr	r0, [pc, #16]	; (8000a78 <blinking_led_traffic_1+0x80>)
  8000a66:	f000 fff8 	bl	8001a5a <HAL_GPIO_TogglePin>
 			break;
- 8000a6a:	e000      	b.n	8000a6e <blinkind_led_traffic_1+0x76>
+ 8000a6a:	e000      	b.n	8000a6e <blinking_led_traffic_1+0x76>
 			break;
  8000a6c:	bf00      	nop
 		}
@@ -1331,77 +1331,77 @@ void blinkind_led_traffic_1(){
  8000a74:	2000003c 	.word	0x2000003c
  8000a78:	40010800 	.word	0x40010800
 
-08000a7c <blinkind_led_traffic_2>:
+08000a7c <blinking_led_traffic_2>:
 
-void blinkind_led_traffic_2(){
+void blinking_led_traffic_2(){
  8000a7c:	b580      	push	{r7, lr}
  8000a7e:	af00      	add	r7, sp, #0
 	switch(state_led_traffic_2){
- 8000a80:	4b1d      	ldr	r3, [pc, #116]	; (8000af8 <blinkind_led_traffic_2+0x7c>)
+ 8000a80:	4b1d      	ldr	r3, [pc, #116]	; (8000af8 <blinking_led_traffic_2+0x7c>)
  8000a82:	681b      	ldr	r3, [r3, #0]
  8000a84:	2b0c      	cmp	r3, #12
- 8000a86:	d024      	beq.n	8000ad2 <blinkind_led_traffic_2+0x56>
+ 8000a86:	d024      	beq.n	8000ad2 <blinking_led_traffic_2+0x56>
  8000a88:	2b0c      	cmp	r3, #12
- 8000a8a:	dc31      	bgt.n	8000af0 <blinkind_led_traffic_2+0x74>
+ 8000a8a:	dc31      	bgt.n	8000af0 <blinking_led_traffic_2+0x74>
  8000a8c:	2b0a      	cmp	r3, #10
- 8000a8e:	d002      	beq.n	8000a96 <blinkind_led_traffic_2+0x1a>
+ 8000a8e:	d002      	beq.n	8000a96 <blinking_led_traffic_2+0x1a>
  8000a90:	2b0b      	cmp	r3, #11
- 8000a92:	d00f      	beq.n	8000ab4 <blinkind_led_traffic_2+0x38>
+ 8000a92:	d00f      	beq.n	8000ab4 <blinking_led_traffic_2+0x38>
 				HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
 				HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
 				HAL_GPIO_TogglePin(GPIOA, LED_GREEN_2_Pin);
 			break;
 			default:
 			break;
- 8000a94:	e02c      	b.n	8000af0 <blinkind_led_traffic_2+0x74>
+ 8000a94:	e02c      	b.n	8000af0 <blinking_led_traffic_2+0x74>
 				HAL_GPIO_TogglePin(GPIOA, LED_RED_2_Pin);
  8000a96:	2108      	movs	r1, #8
- 8000a98:	4818      	ldr	r0, [pc, #96]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000a98:	4818      	ldr	r0, [pc, #96]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000a9a:	f000 ffde 	bl	8001a5a <HAL_GPIO_TogglePin>
 				HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
  8000a9e:	2201      	movs	r2, #1
  8000aa0:	2110      	movs	r1, #16
- 8000aa2:	4816      	ldr	r0, [pc, #88]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000aa2:	4816      	ldr	r0, [pc, #88]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000aa4:	f000 ffc1 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, SET);
  8000aa8:	2201      	movs	r2, #1
  8000aaa:	2120      	movs	r1, #32
- 8000aac:	4813      	ldr	r0, [pc, #76]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000aac:	4813      	ldr	r0, [pc, #76]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000aae:	f000 ffbc 	bl	8001a2a <HAL_GPIO_WritePin>
 			break;
- 8000ab2:	e01e      	b.n	8000af2 <blinkind_led_traffic_2+0x76>
+ 8000ab2:	e01e      	b.n	8000af2 <blinking_led_traffic_2+0x76>
 				HAL_GPIO_WritePin(GPIOA, LED_GREEN_2_Pin, SET);
  8000ab4:	2201      	movs	r2, #1
  8000ab6:	2120      	movs	r1, #32
- 8000ab8:	4810      	ldr	r0, [pc, #64]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000ab8:	4810      	ldr	r0, [pc, #64]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000aba:	f000 ffb6 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_TogglePin(GPIOA, LED_YELLOW_2_Pin);
  8000abe:	2110      	movs	r1, #16
- 8000ac0:	480e      	ldr	r0, [pc, #56]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000ac0:	480e      	ldr	r0, [pc, #56]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000ac2:	f000 ffca 	bl	8001a5a <HAL_GPIO_TogglePin>
 				HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
  8000ac6:	2201      	movs	r2, #1
  8000ac8:	2108      	movs	r1, #8
- 8000aca:	480c      	ldr	r0, [pc, #48]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000aca:	480c      	ldr	r0, [pc, #48]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000acc:	f000 ffad 	bl	8001a2a <HAL_GPIO_WritePin>
 			break;
- 8000ad0:	e00f      	b.n	8000af2 <blinkind_led_traffic_2+0x76>
+ 8000ad0:	e00f      	b.n	8000af2 <blinking_led_traffic_2+0x76>
 				HAL_GPIO_WritePin(GPIOA, LED_YELLOW_2_Pin, SET);
  8000ad2:	2201      	movs	r2, #1
  8000ad4:	2110      	movs	r1, #16
- 8000ad6:	4809      	ldr	r0, [pc, #36]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000ad6:	4809      	ldr	r0, [pc, #36]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000ad8:	f000 ffa7 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_WritePin(GPIOA, LED_RED_2_Pin, SET);
  8000adc:	2201      	movs	r2, #1
  8000ade:	2108      	movs	r1, #8
- 8000ae0:	4806      	ldr	r0, [pc, #24]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000ae0:	4806      	ldr	r0, [pc, #24]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000ae2:	f000 ffa2 	bl	8001a2a <HAL_GPIO_WritePin>
 				HAL_GPIO_TogglePin(GPIOA, LED_GREEN_2_Pin);
  8000ae6:	2120      	movs	r1, #32
- 8000ae8:	4804      	ldr	r0, [pc, #16]	; (8000afc <blinkind_led_traffic_2+0x80>)
+ 8000ae8:	4804      	ldr	r0, [pc, #16]	; (8000afc <blinking_led_traffic_2+0x80>)
  8000aea:	f000 ffb6 	bl	8001a5a <HAL_GPIO_TogglePin>
 			break;
- 8000aee:	e000      	b.n	8000af2 <blinkind_led_traffic_2+0x76>
+ 8000aee:	e000      	b.n	8000af2 <blinking_led_traffic_2+0x76>
 			break;
  8000af0:	bf00      	nop
 		}
@@ -2673,10 +2673,10 @@ void fsm_system_run(){
  80011a0:	4603      	mov	r3, r0
  80011a2:	2b00      	cmp	r3, #0
  80011a4:	d008      	beq.n	80011b8 <fsm_system_run+0x104>
-				blinkind_led_traffic_1();
- 80011a6:	f7ff fc27 	bl	80009f8 <blinkind_led_traffic_1>
-				blinkind_led_traffic_2();
- 80011aa:	f7ff fc67 	bl	8000a7c <blinkind_led_traffic_2>
+				blinking_led_traffic_1();
+ 80011a6:	f7ff fc27 	bl	80009f8 <blinking_led_traffic_1>
+				blinking_led_traffic_2();
+ 80011aa:	f7ff fc67 	bl	8000a7c <blinking_led_traffic_2>
 				set_timer(6, 500);
  80011ae:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  80011b2:	2006      	movs	r0, #6
@@ -2774,10 +2774,10 @@ void fsm_system_run(){
  8001256:	4603      	mov	r3, r0
  8001258:	2b00      	cmp	r3, #0
  800125a:	d008      	beq.n	800126e <fsm_system_run+0x1ba>
-				blinkind_led_traffic_1();
- 800125c:	f7ff fbcc 	bl	80009f8 <blinkind_led_traffic_1>
-				blinkind_led_traffic_2();
- 8001260:	f7ff fc0c 	bl	8000a7c <blinkind_led_traffic_2>
+				blinking_led_traffic_1();
+ 800125c:	f7ff fbcc 	bl	80009f8 <blinking_led_traffic_1>
+				blinking_led_traffic_2();
+ 8001260:	f7ff fc0c 	bl	8000a7c <blinking_led_traffic_2>
 				set_timer(6, 500);
  8001264:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  8001268:	2006      	movs	r0, #6
@@ -2876,10 +2876,10 @@ void fsm_system_run(){
  800130a:	4603      	mov	r3, r0
  800130c:	2b00      	cmp	r3, #0
  800130e:	d008      	beq.n	8001322 <fsm_system_run+0x26e>
-				blinkind_led_traffic_1();
- 8001310:	f7ff fb72 	bl	80009f8 <blinkind_led_traffic_1>
-				blinkind_led_traffic_2();
- 8001314:	f7ff fbb2 	bl	8000a7c <blinkind_led_traffic_2>
+				blinking_led_traffic_1();
+ 8001310:	f7ff fb72 	bl	80009f8 <blinking_led_traffic_1>
+				blinking_led_traffic_2();
+ 8001314:	f7ff fbb2 	bl	8000a7c <blinking_led_traffic_2>
 				set_timer(6, 500);
  8001318:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  800131c:	2006      	movs	r0, #6

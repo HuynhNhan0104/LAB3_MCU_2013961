@@ -17,8 +17,8 @@
 void turn_on_traffic_led_1();
 void turn_on_traffic_led_2();
 
-void blinkind_led_traffic_1();
-void blinkind_led_traffic_2();
+void blinking_led_traffic_1();
+void blinking_led_traffic_2();
 
 
 #endif /* INC_LED_TRAFFIC_H_ */

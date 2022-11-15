@@ -2623,12 +2623,12 @@ LOAD d:/stm32cubeide/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.id
  .text.turn_on_traffic_led_2
                 0x0000000008000970       0x88 ./Core/Src/led_traffic.o
                 0x0000000008000970                turn_on_traffic_led_2
- .text.blinkind_led_traffic_1
+ .text.blinking_led_traffic_1
                 0x00000000080009f8       0x84 ./Core/Src/led_traffic.o
-                0x00000000080009f8                blinkind_led_traffic_1
- .text.blinkind_led_traffic_2
+                0x00000000080009f8                blinking_led_traffic_1
+ .text.blinking_led_traffic_2
                 0x0000000008000a7c       0x84 ./Core/Src/led_traffic.o
-                0x0000000008000a7c                blinkind_led_traffic_2
+                0x0000000008000a7c                blinking_led_traffic_2
  .text.main     0x0000000008000b00       0x34 ./Core/Src/main.o
                 0x0000000008000b00                main
  .text.SystemClock_Config

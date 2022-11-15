@@ -51,7 +51,7 @@ void turn_on_traffic_led_2(){
 	}
 }
 
-void blinkind_led_traffic_1(){
+void blinking_led_traffic_1(){
 	switch(state_led_traffic_1){
 			case RED:
 				HAL_GPIO_TogglePin(GPIOA, LED_RED_1_Pin);
@@ -73,7 +73,7 @@ void blinkind_led_traffic_1(){
 		}
 }
 
-void blinkind_led_traffic_2(){
+void blinking_led_traffic_2(){
 	switch(state_led_traffic_2){
 			case RED:
 				HAL_GPIO_TogglePin(GPIOA, LED_RED_2_Pin);

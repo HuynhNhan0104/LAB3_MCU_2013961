@@ -125,8 +125,8 @@ void fsm_system_run(){
 			update_2_buffer_led_7seg_right(buffer_duration_time);
 			//blinking every 500ms
 			if(is_timer_timeout(6)){
-				blinkind_led_traffic_1();
-				blinkind_led_traffic_2();
+				blinking_led_traffic_1();
+				blinking_led_traffic_2();
 				set_timer(6, 500);
 			}
 			//button 1 is pressed, buffer_duration_time increase 1, if buffer exceed 99, buffer = 0;
@@ -155,8 +155,8 @@ void fsm_system_run(){
 			update_2_buffer_led_7seg_right(buffer_duration_time);
 			//blinking every 500ms
 			if(is_timer_timeout(6)){
-				blinkind_led_traffic_1();
-				blinkind_led_traffic_2();
+				blinking_led_traffic_1();
+				blinking_led_traffic_2();
 				set_timer(6, 500);
 			}
 			//button 1 is pressed, buffer_duration_time increase 1, if buffer exceed 99, buffer = 0;
@@ -186,8 +186,8 @@ void fsm_system_run(){
 			update_2_buffer_led_7seg_right(buffer_duration_time);
 			//blinking every 500ms
 			if(is_timer_timeout(6)){
-				blinkind_led_traffic_1();
-				blinkind_led_traffic_2();
+				blinking_led_traffic_1();
+				blinking_led_traffic_2();
 				set_timer(6, 500);
 			}
 			//button 1 is pressed, buffer_duration_time increase 1, if buffer exceed 99, buffer = 0;
